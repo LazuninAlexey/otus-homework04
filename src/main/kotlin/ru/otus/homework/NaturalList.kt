@@ -60,11 +60,11 @@ class NaturalList(n: Int) : List<Int> {
             return true
         } else if (other !is List<*>){
             return false
-        } else if((other as List<*>).size != this.size) {
+        } else if(other.size != this.size) {
             return false
         } else {
             for(i in 1..this.size){
-                if(i != (other as List<*>)[i-1]){
+                if(i != other[i-1]){
                     return false
                 }
             }
@@ -79,7 +79,7 @@ class NaturalList(n: Int) : List<Int> {
      * Например, NaturalList(5).hashCode() должен быть равен listOf(1,2,3,4,5).hashCode()
      */
     override fun hashCode(): Int{
-        var hash: Int = 1
+        var hash = 1
 
         for(i in 1..this.size){
             hash = 31 * hash + i.hashCode()
